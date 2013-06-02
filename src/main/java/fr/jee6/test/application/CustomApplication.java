@@ -4,6 +4,7 @@ import fr.jee6.test.providers.CustomerProvider;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -18,7 +19,7 @@ public class CustomApplication extends Application {
 
     @Override
     public Set<Class<?>> getClasses() {
-        Set<Class<?>> classes = super.getClasses();
+        Set<Class<?>> classes = new HashSet<Class<?>>();
         classes.add(BusinessCustomerService.class);
         classes.add(CustomerProvider.class);
         return classes;
