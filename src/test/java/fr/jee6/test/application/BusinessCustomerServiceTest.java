@@ -27,7 +27,9 @@ public class BusinessCustomerServiceTest {
     @Module
     @Classes(BusinessCustomerService.class)
     public WebApp app() {
-        return new WebApp().contextRoot("test");
+        return new WebApp().contextRoot("test").addServlet("REST Application", Application.class.getName())
+                .addInitParam("REST Application", "javax.ws.rs.Application", CustomApplication.class.getName())
+                ;
     }
 
     @Test
